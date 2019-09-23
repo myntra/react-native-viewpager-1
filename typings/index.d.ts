@@ -80,4 +80,10 @@ export default class ViewPagerAndroid extends ViewPagerAndroidBase {
      * The transition between pages will *not* be animated.
      */
     public setPageWithoutAnimation(selectedPage: number): void;
+
+    /**
+     * A helper function to extend the duration on current scroll animation.
+     * @param duration is in miliseconds.
+     */
+    public extendScrollDuration(duration: number): void;
 }
