@@ -7,11 +7,11 @@
 
 package com.reactnativecommunity.viewpager;
 
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.v4.view.MYNPagerAdapter;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.facebook.common.logging.FLog;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.common.ReactConstants;
@@ -23,12 +23,12 @@ import java.util.List;
 
 /**
  * Wrapper view for {@link ViewPager}. It's forwarding calls to {@link ViewGroup#addView} to add
- * views to custom {@link PagerAdapter} instance which is used by {@link NativeViewHierarchyManager}
+ * views to custom {@link MYNPagerAdapter} instance which is used by {@link NativeViewHierarchyManager}
  * to add children nodes according to react views hierarchy.
  */
 public class ReactViewPager extends ViewPager {
 
-  private class Adapter extends PagerAdapter {
+  private class Adapter extends MYNPagerAdapter {
 
     private final List<View> mViews = new ArrayList<>();
     private boolean mIsViewPagerInIntentionallyInconsistentState = false;
@@ -151,6 +151,15 @@ public class ReactViewPager extends ViewPager {
     mIsCurrentItemFromJs = false;
     setOnPageChangeListener(new PageChangeListener());
     setAdapter(new Adapter());
+  }
+
+
+  /*
+   * Extend the duration of current scroll animation.
+   */
+  @Override
+  public void extendScrollDuration(int duration) {
+    super.extendScrollDuration(duration);
   }
 
   @Override
