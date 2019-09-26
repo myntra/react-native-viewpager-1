@@ -20,15 +20,6 @@ android {
         targetSdkVersion versions.targetSdk
     }
 
-    buildTypes {
-        debug {}
-        qa {}
-        fox {}
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 }
 
 repositories {
