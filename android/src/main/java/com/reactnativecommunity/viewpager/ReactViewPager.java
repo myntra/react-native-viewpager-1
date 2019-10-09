@@ -7,7 +7,7 @@
 
 package com.reactnativecommunity.viewpager;
 
-import android.support.v4.view.MYNPagerAdapter;
+import androidx.viewpager.widget.MYNPagerAdapter;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -209,6 +209,7 @@ public class ReactViewPager extends ViewPager {
   public void setCurrentItemFromJs(int item, boolean animated) {
     mIsCurrentItemFromJs = true;
     setCurrentItem(item, animated);
+    mEventDispatcher.dispatchEvent(new PageSelectedEvent(getId(), item));
     mIsCurrentItemFromJs = false;
   }
 
