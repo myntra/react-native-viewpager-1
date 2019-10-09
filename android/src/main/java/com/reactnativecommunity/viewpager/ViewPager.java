@@ -35,7 +35,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.AbsSavedState;
 import android.support.v4.view.AccessibilityDelegateCompat;
-import android.support.v4.view.MYNPagerAdapter;
+import androidx.viewpager.widget.MYNPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewCompat;
