@@ -29,7 +29,6 @@ import {childrenWithOverriddenStyle} from "./utils";
 
 const NativeViewPager = require('./ViewPagerNativeComponent');
 
-const VIEW_PAGER_REF = 'viewPager';
 const VIEW_MANAGER_NAME = 'RNCViewPager';
 
 function getViewManagerConfig(viewManagerName) {
@@ -95,7 +94,7 @@ class ViewPager extends React.Component<ViewPagerProps> {
   /* $FlowFixMe(>=0.78.0 site=react_native_android_fb) This issue was found
    * when making Flow check .android.js files. */
   getInnerViewNode = (): ReactComponent => {
-    return this.refs[VIEW_PAGER_REF].getInnerViewNode();
+    return this.viewpager && this.viewpager.getInnerViewNode();
   };
 
   _onPageScroll = (e: PageScrollEvent) => {
@@ -151,7 +150,7 @@ class ViewPager extends React.Component<ViewPagerProps> {
     return (
       <NativeViewPager
         {...this.props}
-        ref={VIEW_PAGER_REF}
+        ref={ref => (this.viewpager = ref)}
         style={this.props.style}
         onPageScroll={this._onPageScroll}
         onPageScrollStateChanged={this._onPageScrollStateChanged}
