@@ -177,7 +177,7 @@ class ViewPagerAndroid extends React.Component<Props> {
   /* $FlowFixMe(>=0.78.0 site=react_native_android_fb) This issue was found
    * when making Flow check .android.js files. */
   getInnerViewNode = (): ReactComponent => {
-    return this.refs[VIEWPAGER_REF].getInnerViewNode();
+    return this.viewpager && this.viewpager.getInnerViewNode();
   };
 
   /* $FlowFixMe(>=0.78.0 site=react_native_android_fb) This issue was found
@@ -281,7 +281,7 @@ class ViewPagerAndroid extends React.Component<Props> {
     return (
       <NativeAndroidViewPager
         {...this.props}
-        ref={VIEWPAGER_REF}
+        ref={ref => (this.viewpager = ref)}
         style={this.props.style}
         onPageScroll={this._onPageScroll}
         onPageScrollStateChanged={this._onPageScrollStateChanged}

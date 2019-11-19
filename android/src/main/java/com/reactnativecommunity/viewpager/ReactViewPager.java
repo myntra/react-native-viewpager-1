@@ -7,7 +7,7 @@
 
 package com.reactnativecommunity.viewpager;
 
-import android.support.v4.view.MYNPagerAdapter;
+import androidx.viewpager.widget.MYNPagerAdapter;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
